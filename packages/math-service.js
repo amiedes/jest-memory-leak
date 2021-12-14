@@ -1,6 +1,9 @@
+import fs from 'fs'
+
 export default class MathService {
   constructor () {
-    this.dummySeed = 'foobar'
+    const rawSeed = fs.readFileSync('./seed.json')
+    this.dummySeed = JSON.parse(rawSeed)
   }
 
   sum (firstOperand, secondOperand) {
